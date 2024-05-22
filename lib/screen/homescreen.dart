@@ -299,7 +299,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         topLeft: Radius.circular(40),
                                         bottomRight: Radius.circular(40))),
                                 child: const Text(
-                                  "Fantasy",
+                                  "Riddle and Mystery",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 24,

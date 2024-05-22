@@ -146,7 +146,7 @@ class _bookdisplayState extends State<bookdisplay> {
         child: ElevatedButton(
           onPressed: () async {
             await launchUrl(
-                Uri.parse(widget.d["items"][0]["volumeInfo"]["infoLink"]));
+                Uri.parse(widget.d["items"][0]["accessInfo"]["webReaderLink"]));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Color.fromARGB(255, 37, 85, 50),
@@ -249,6 +249,7 @@ class _bookdisplayState extends State<bookdisplay> {
                         ),
                         Text(
                           widget.d["items"][0]["volumeInfo"]["title"],
+                          textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
                                   fontSize: 23,
@@ -258,6 +259,7 @@ class _bookdisplayState extends State<bookdisplay> {
                         Text(
                           "by " +
                               widget.d["items"][0]["volumeInfo"]["authors"][0],
+                          textAlign: TextAlign.center,
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
                                   fontSize: 15, color: Colors.grey[400])),
@@ -340,7 +342,10 @@ class _bookdisplayState extends State<bookdisplay> {
                                   height: 5,
                                 ),
                                 Text(
-                                  lang,
+                                  (widget.d["items"][0]["volumeInfo"]
+                                          ["language"])
+                                      .toString()
+                                      .toUpperCase(),
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -372,7 +377,30 @@ class _bookdisplayState extends State<bookdisplay> {
                               ],
                             ),
                           ],
-                        )
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        ElevatedButton(
+                          onPressed: () async {
+                            await launchUrl(Uri.parse(widget.d["items"][0]
+                                ["volumeInfo"]["infoLink"]));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          // splashColor: Colors.grey,
+                          // color: Colors.black,
+                          child: Text(
+                            "INFO BUKU",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 37, 85, 50),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
