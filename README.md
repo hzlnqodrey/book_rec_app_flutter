@@ -19,3 +19,4 @@ Changelog:
 
 - Then until Now: feat and fixes
 - 23 May 2024: deploy to vercel (try again)
+- 4.0
