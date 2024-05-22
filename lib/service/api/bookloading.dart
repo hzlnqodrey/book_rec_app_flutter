@@ -32,9 +32,17 @@ class _bookloadingState extends State<bookloading> {
       Response r = await get(Uri.parse(
           "https://www.googleapis.com/books/v1/volumes?q=isbn:${widget.c}&key=AIzaSyAqxw3nnCxwNQXRmXb-ZFi8FTNyhz6kwGA"));
       c2 = jsonDecode(r.body);
-      if (c2 == null) {
-        throw Exception();
+      if (c2["totalItems"] == 0) {
+        debugPrint("error Null");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Book details are not available'),
+            backgroundColor: Colors.red,
+          ),
+        );
+        Navigator.pop(context);
       } else {
+        debugPrint("data is coming");
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return bookdisplay(d: c2);
         }));
@@ -47,9 +55,6 @@ class _bookloadingState extends State<bookloading> {
           backgroundColor: Colors.red,
         ),
       );
-      Navigator.of(context)
-        ..pop()
-        ..pop();
     }
   }
 
