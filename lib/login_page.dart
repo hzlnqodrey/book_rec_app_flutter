@@ -201,7 +201,10 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
-        child: Text(labelButton),
+        child: Text(
+          labelButton,
+          style: TextStyle(fontSize: 19),
+        ),
         onPressed: () {
           submitCallback(labelButton);
         },

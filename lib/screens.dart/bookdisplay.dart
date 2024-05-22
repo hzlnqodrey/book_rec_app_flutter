@@ -140,7 +140,7 @@ class _bookdisplayState extends State<bookdisplay> {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
-      backgroundColor: Color(0xfff012ac0),
+      backgroundColor: Color.fromARGB(255, 37, 85, 50),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 25.0),
         child: ElevatedButton(
@@ -148,11 +148,19 @@ class _bookdisplayState extends State<bookdisplay> {
             await launchUrl(
                 Uri.parse(widget.d["items"][0]["volumeInfo"]["infoLink"]));
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color.fromARGB(255, 37, 85, 50),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
           // splashColor: Colors.grey,
           // color: Colors.black,
           child: Text(
             "READ BOOK",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
         ),
       ),
@@ -218,7 +226,6 @@ class _bookdisplayState extends State<bookdisplay> {
                 child: Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
-
                           image: AssetImage("assets/overlay.png"),
                           fit: BoxFit.cover)),
                   child: Center(

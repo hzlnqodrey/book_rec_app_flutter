@@ -99,7 +99,10 @@ class _RegisterPageState extends State<RegisterPage> {
       padding: EdgeInsets.symmetric(horizontal: 20),
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
-        child: Text(labelButton),
+        child: Text(
+          labelButton,
+          style: TextStyle(fontSize: 19),
+        ),
         onPressed: () {
           submitCallback(labelButton);
         },
