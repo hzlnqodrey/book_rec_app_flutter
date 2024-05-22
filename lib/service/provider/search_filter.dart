@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:book_recomendation_hazlan/service/api/bookloading.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:book_recomendation_hazlan/screen/bookdisplay.dart';
 
 class searchfilter extends StatefulWidget {
   var d;
@@ -23,10 +24,26 @@ class _searchfilterState extends State<searchfilter> {
         isbn = widget.d["items"][index + 1]["volumeInfo"]["industryIdentifiers"]
             [0]["identifier"];
       });
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return bookloading(c: isbn);
-      }));
+      print(isbn);
+      print("MASUK SINI 1 !!!");
+      if (isbn != null) {
+        print("MASUK SINI 3 !!!");
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return bookloading(
+              c: widget.d["items"][index + 1]["volumeInfo"]
+                  ["industryIdentifiers"][0]["identifier"]);
+        }));
+      } else {
+        print("error 1 !!!");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Book details are not available'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     } catch (e) {
+      print("error 2 !!!");
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Book details are not available'),
@@ -244,6 +261,7 @@ class _searchfilterState extends State<searchfilter> {
                                   ),
                                   ElevatedButton(
                                     onPressed: () {
+                                      print("MASUK SINI 2 !!!");
                                       getisbn(index);
                                     },
                                     style: ElevatedButton.styleFrom(

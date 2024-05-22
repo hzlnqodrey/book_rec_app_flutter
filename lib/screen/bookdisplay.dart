@@ -23,9 +23,10 @@ class _bookdisplayState extends State<bookdisplay> {
   var pubdate = "Not available";
   var lang = "Not available";
   var rating = "Not available";
-  var url =
-      "https://www.bing.com/images/search?view=detailV2&ccid=vx9%2fIUj5&id=3B7650A146D55682645F765E60E786419299154C&thid=OIP.vx9_IUj50utS7cbaiRtoZAHaE8&mediaurl=https%3a%2f%2fst3.depositphotos.com%2f1186248%2f14351%2fi%2f950%2fdepositphotos_143511907-stock-photo-not-available-rubber-stamp.jpg&exph=682&expw=1023&q=not+available&simid=608054098357136066&FORM=IRPRST&ck=BADF0353AC59677CCFAA67227357E3CB&selectedIndex=1&ajaxhist=0&ajaxserp=0";
+  // var url_foto = "https://www.bing.com/images/search?view=detailV2&ccid=vx9%2fIUj5&id=3B7650A146D55682645F765E60E786419299154C&thid=OIP.vx9_IUj50utS7cbaiRtoZAHaE8&mediaurl=https%3a%2f%2fst3.depositphotos.com%2f1186248%2f14351%2fi%2f950%2fdepositphotos_143511907-stock-photo-not-available-rubber-stamp.jpg&exph=682&expw=1023&q=not+available&simid=608054098357136066&FORM=IRPRST&ck=BADF0353AC59677CCFAA67227357E3CB&selectedIndex=1&ajaxhist=0&ajaxserp=0";
   @override
+  var url = "";
+  // var placeholder_img = AssetImage("not_avail.png");
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -33,13 +34,15 @@ class _bookdisplayState extends State<bookdisplay> {
     getdesc();
     getpubdate();
     geturl();
+    getlang();
+    getrating();
   }
 
   geturl() {
     try {
       url = widget.d["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
     } catch (e) {
-      url = widget.d["items"][1]["volumeInfo"]["imageLinks"]["thumbnail"];
+      SnackBar(content: Text("Image not available"));
     }
   }
 
@@ -238,9 +241,10 @@ class _bookdisplayState extends State<bookdisplay> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
-                                image: NetworkImage(
-                                  url,
-                                ),
+                                image: NetworkImage((url == "")
+                                    ? "https://islandpress.org/files/default_book_cover_2015.jpg"
+                                    : widget.d["items"][0]["volumeInfo"]
+                                        ["imageLinks"]["thumbnail"]),
                                 fit: BoxFit.cover),
                           ),
                         ),
