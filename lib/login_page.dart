@@ -22,7 +22,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       // TODO 2: Color Pallete
       // backgroundColor: const Color(0xfff0f1f5),
-      backgroundColor: Color.fromARGB(255, 225, 229, 249),
+      // backgroundColor: Color.fromARGB(255, 225, 229, 249),
+      backgroundColor: Color.fromARGB(70, 150, 196, 162), // green[50]
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -203,7 +204,10 @@ class _LoginPageState extends State<LoginPage> {
       child: ElevatedButton(
         child: Text(
           labelButton,
-          style: TextStyle(fontSize: 19),
+          style: TextStyle(fontSize: 19, color: Colors.white),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color.fromARGB(255, 37, 85, 50),
         ),
         onPressed: () {
           submitCallback(labelButton);

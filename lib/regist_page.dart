@@ -21,7 +21,8 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 225, 229, 249),
+      backgroundColor: Color.fromARGB(70, 150, 196, 162), // green[50]
+      // backgroundColor: Color.fromARGB(100, 61, 70, 63),
       body: Container(
         padding: EdgeInsets.all(18),
         child: SingleChildScrollView(
@@ -101,7 +102,10 @@ class _RegisterPageState extends State<RegisterPage> {
       child: ElevatedButton(
         child: Text(
           labelButton,
-          style: TextStyle(fontSize: 19),
+          style: TextStyle(fontSize: 19, color: Colors.white),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color.fromARGB(255, 37, 85, 50),
         ),
         onPressed: () {
           submitCallback(labelButton);

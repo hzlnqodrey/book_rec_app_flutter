@@ -134,13 +134,49 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
               flex: 2,
               child: Container(
-                color: Colors.white,
+                color: Colors.green[50],
                 child: Column(
                   children: [
                     Expanded(
                         child: Container(
                             child: ListView(
                       children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 37, 85, 50),
+                                    border: Border.all(
+                                      width: 8,
+                                      color: Color.fromARGB(255, 37, 85, 50),
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(80),
+                                        bottomRight: Radius.circular(120))),
+                                child: const Text(
+                                  "Fantasy",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        fantasy(c2: widget.c2),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 10),
@@ -150,13 +186,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Text(
                                 "Health",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
                               ),
                             ],
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         romance(c4: widget.c4),
                         SizedBox(height: 10),
@@ -169,36 +206,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Text(
                                 "Horror",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
                               ),
                             ],
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 5,
                         ),
                         horror(c3: widget.c3),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Text(
-                                "Fantasy",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        fantasy(c2: widget.c2),
                         SizedBox(
                           height: 20,
                         ),
@@ -210,7 +227,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Text(
                                 "Mistery",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
                               ),
                             ],
                           ),
