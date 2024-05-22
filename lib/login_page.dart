@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projekmobile/regist_page.dart';
-import 'package:projekmobile/models/hive_database.dart';
+import 'package:book_recomendation_hazlan/regist_page.dart';
+import 'package:book_recomendation_hazlan/models/hive_database.dart';
 import '../../bottom_navbar.dart';
 
 class LoginPage extends StatefulWidget {
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Row(
                                   children: [
                                     const Icon(
-                                      Icons.password,
+                                      Icons.lock,
                                       color: Colors.grey,
                                     ),
                                     Container(
@@ -139,6 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                                         style: const TextStyle(
                                           color: Colors.black54,
                                         ),
+                                        obscureText: true,
                                         decoration: const InputDecoration(
                                           border: InputBorder.none,
                                           hintText: 'Password',
@@ -168,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have an account?"),
+                          const Text("Belum punya akun?"),
                           TextButton(
                             style: ButtonStyle(),
                             onPressed: () {
@@ -179,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               );
                             },
-                            child: const Text(' Sign up!'),
+                            child: const Text(' Daftar!'),
                           ),
                         ],
                       )),
@@ -210,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildLoginButton() {
     return _commonSubmitButton(
-      labelButton: "L O G I N",
+      labelButton: "Login",
       submitCallback: (value) {
         String currentUsername = cUser.value.text;
         String currentPassword = cPass.value.text;

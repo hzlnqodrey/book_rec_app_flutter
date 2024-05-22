@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:projekmobile/models/shared_preference.dart';
-import 'package:projekmobile/models/user.dart';
+import 'package:book_recomendation_hazlan/models/shared_preference.dart';
+import 'package:book_recomendation_hazlan/models/user.dart';
 import 'package:bcrypt/bcrypt.dart';
 
 class HiveDatabase {

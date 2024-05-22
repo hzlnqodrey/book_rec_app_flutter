@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:bcrypt/bcrypt.dart';
-import 'package:projekmobile/models/hive_database.dart';
-import 'package:projekmobile/models/user.dart';
+import 'package:book_recomendation_hazlan/models/hive_database.dart';
+import 'package:book_recomendation_hazlan/models/user.dart';
 import 'login_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff0f1f5),
+      backgroundColor: const Color.fromARGB(255, 225, 229, 249),
       body: Container(
         padding: EdgeInsets.all(18),
         child: SingleChildScrollView(
@@ -37,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: user,
                 decoration: InputDecoration(
                   hintText: 'Username',
-                  prefixIcon: const Icon(Icons.account_circle_outlined),
+                  prefixIcon: const Icon(Icons.person),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  prefixIcon: const Icon(Icons.lock_outlined),
+                  prefixIcon: const Icon(Icons.lock),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -70,7 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Have an account?"),
+                  const Text("Sudah mempunyai akun?"),
                   TextButton(
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -111,9 +111,10 @@ class _RegisterPageState extends State<RegisterPage> {
     return _commonSubmitButton(
       labelButton: "Sign Up",
       submitCallback: (value) {
+        // Sign Up using Hive and Bcrypt to hash the password and store it in the database
         if (user.text.isNotEmpty && password.text.isNotEmpty) {
           final String hashedPassword =
-          BCrypt.hashpw(password.text, BCrypt.gensalt());
+              BCrypt.hashpw(password.text, BCrypt.gensalt());
           _hive.addData(
               DataModel(username: user.text, password: hashedPassword));
           user.clear();

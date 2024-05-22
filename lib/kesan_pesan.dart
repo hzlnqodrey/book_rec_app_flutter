@@ -14,7 +14,7 @@ class KesanPesan extends StatelessWidget {
           children: [
             Text('Kesan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
             SizedBox(height: 10,),
-            Text('TPM is so cool),
+            Text('TPM is so cool'),
             SizedBox(height: 20,),
             Text('Pesan', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
             SizedBox(height: 10,),

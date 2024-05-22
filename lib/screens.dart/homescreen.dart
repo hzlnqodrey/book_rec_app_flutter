@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
-import 'package:projekmobile/category/fantasy.dart';
-import 'package:projekmobile/category/horror.dart';
-import 'package:projekmobile/category/health.dart';
-import 'package:projekmobile/category/mystery.dart';
-import 'package:projekmobile/screens.dart/search_loading.dart';
+import 'package:book_recomendation_hazlan/category/fantasy.dart';
+import 'package:book_recomendation_hazlan/category/horror.dart';
+import 'package:book_recomendation_hazlan/category/health.dart';
+import 'package:book_recomendation_hazlan/category/mystery.dart';
+import 'package:book_recomendation_hazlan/screens.dart/search_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,9 +17,9 @@ class HomeScreen extends StatefulWidget {
 
   HomeScreen(
       {@required this.c1,
-        @required this.c2,
-        @required this.c3,
-        @required this.c4});
+      @required this.c2,
+      @required this.c3,
+      @required this.c4});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -43,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return ans + "...";
   }
 
-
   @override
   void initState() {
     // TODO: implement initState
@@ -59,175 +58,172 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xfff012AC0),
       body: SafeArea(
           child: Column(
-            children: [
-
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            "assets/back.png",
-                          ),
-                          fit: BoxFit.cover)),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                        "assets/back.png",
+                      ),
+                      fit: BoxFit.cover)),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 80.0),
+                      child: Container(
+                        height: 40,
+                        child: TextField(
+                          controller: t,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: EdgeInsets.all(10),
+                              hintText: "Cari Buku...",
+                              prefixIcon: Icon(Icons.search),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(40))),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return searchloading(text: t.text);
+                        }));
+                      },
+                      // splashColor: Color(0xfff012AC0),
+                      // color: Colors.white,
+                      child: Text(
+                        "CARI",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                        "Jika kamu hanya membaca buku yang dibaca semua orang,",
+                        style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold))),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "- kamu hanya bisa berpikir seperti semua orang..",
+                      style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Expanded(
+                        child: Container(
+                            child: ListView(
                       children: [
+                        SizedBox(height: 10),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 80.0),
-                          child: Container(
-                            height: 40,
-                            child: TextField(
-                              controller: t,
-                              decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: Colors.white,
-                                  contentPadding: EdgeInsets.all(10),
-                                  hintText: "Search Book...",
-                                  prefixIcon: Icon(Icons.search),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(40))),
-                            ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Mistery",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 5,
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                                  return searchloading(text: t.text);
-                                }));
-                          },
-                          // splashColor: Color(0xfff012AC0),
-                          // color: Colors.white,
-                          child: Text(
-                            "SEARCH",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                        mystery(c1: widget.c1),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Text(
+                                "Fantasy",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        fantasy(c2: widget.c2),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Text(
+                                "Horror",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(
                           height: 20,
                         ),
-                        Text("Explore the book forest!",
-                            style: GoogleFonts.lato(
-                                textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold))),
+                        horror(c3: widget.c3),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Text(
+                                "Health",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text(
-                          "Find the light you are chasing for.",
-                          style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold)),
-                        )
+                        romance(c4: widget.c4),
                       ],
-                    ),
-                  ),
+                    )))
+                  ],
                 ),
-              ),
-              Expanded(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Expanded(
-                            child: Container(
-                                child: ListView(
-                                  children: [
-                                    SizedBox(height: 10),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            "Mistery",
-                                            style: TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    mystery(c1: widget.c1),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20.0, vertical: 10),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        // ignore: prefer_const_literals_to_create_immutables
-                                        children: [
-                                          Text(
-                                            "Fantasy",
-                                            style: TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    fantasy(c2: widget.c2),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20.0, vertical: 10),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        // ignore: prefer_const_literals_to_create_immutables
-                                        children: [
-                                          Text(
-                                            "Horror",
-                                            style: TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    horror(c3: widget.c3),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20.0, vertical: 10),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        // ignore: prefer_const_literals_to_create_immutables
-                                        children: [
-                                          Text(
-                                            "Health",
-                                            style: TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    romance(c4: widget.c4),
-                                  ],
-                                )))
-                      ],
-                    ),
-                  ))
-            ],
-          )),
+              ))
+        ],
+      )),
     ));
   }
 }

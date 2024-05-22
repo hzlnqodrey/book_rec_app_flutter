@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
 
-import 'package:projekmobile/screens.dart/bookloading.dart';
+import 'package:book_recomendation_hazlan/screens.dart/bookloading.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
