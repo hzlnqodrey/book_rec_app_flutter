@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:book_recomendation_hazlan/screens.dart/homescreen.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +25,11 @@ class _loadingscreenState extends State<loadingscreen>
   var c3;
   var c4;
 
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getcategorydata();
-
   }
 
   void getcategorydata() async {
@@ -46,6 +45,13 @@ class _loadingscreenState extends State<loadingscreen>
     c2 = jsonDecode(r2.body);
     c3 = jsonDecode(r3.body);
     c4 = jsonDecode(r4.body);
+
+    // Shuffle the books
+    c1['items'].shuffle(Random());
+    c2['items'].shuffle(Random());
+    c3['items'].shuffle(Random());
+    c4['items'].shuffle(Random());
+    print(c1);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return HomeScreen(c1: c1, c2: c2, c3: c3, c4: c4);
     }));
@@ -59,10 +65,9 @@ class _loadingscreenState extends State<loadingscreen>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              child:CircularProgressIndicator(
-                color: Colors.black,
-              )
-            )
+                child: CircularProgressIndicator(
+              color: Colors.black,
+            ))
           ],
         ),
       ),

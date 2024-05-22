@@ -141,8 +141,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Container(
                             child: ListView(
                       children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                child: const Text(
+                                  "Book Category:",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 36,
+                                      color: Colors.black),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                         SizedBox(
-                          height: 20,
+                          height: 15,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
@@ -177,6 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 5,
                         ),
                         fantasy(c2: widget.c2),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 10),
@@ -184,10 +207,24 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              Text(
-                                "Health",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 37, 85, 50),
+                                    border: Border.all(
+                                      width: 8,
+                                      color: Color.fromARGB(255, 37, 85, 50),
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(80),
+                                        bottomRight: Radius.circular(120))),
+                                child: const Text(
+                                  "Health",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                      color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
@@ -196,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 5,
                         ),
                         romance(c4: widget.c4),
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 10),
@@ -204,10 +241,24 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              Text(
-                                "Horror",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 37, 85, 50),
+                                    border: Border.all(
+                                      width: 8,
+                                      color: Color.fromARGB(255, 37, 85, 50),
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(80),
+                                        bottomRight: Radius.circular(120))),
+                                child: const Text(
+                                  "Horror",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                      color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
@@ -224,11 +275,26 @@ class _HomeScreenState extends State<HomeScreen> {
                               horizontal: 20.0, vertical: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              Text(
-                                "Mistery",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 37, 85, 50),
+                                    border: Border.all(
+                                      width: 8,
+                                      color: Color.fromARGB(255, 37, 85, 50),
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(80),
+                                        bottomRight: Radius.circular(120))),
+                                child: const Text(
+                                  "Fantasy",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                      color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
