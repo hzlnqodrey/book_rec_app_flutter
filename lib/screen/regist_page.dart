@@ -32,6 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Text(
                 'Sign Up',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50),
+                textAlign: TextAlign.center,
               ),
               SizedBox(height: 30),
               TextFormField(

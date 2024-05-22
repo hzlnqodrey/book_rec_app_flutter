@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'menu_tambahan.dart';
 import 'profile.dart';
-import 'screens.dart/loadingscreen.dart';
-import 'package:book_recomendation_hazlan/kesan_pesan.dart';
+import '../service/api/loadingscreen.dart';
+import 'package:book_recomendation_hazlan/screen/kesan_pesan.dart';
 
 class Nav extends StatefulWidget {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:book_recomendation_hazlan/regist_page.dart';
+import 'package:book_recomendation_hazlan/screen/regist_page.dart';
 import 'package:book_recomendation_hazlan/models/hive_database.dart';
-import '../../bottom_navbar.dart';
+import 'bottom_navbar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -39,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     // TODO 1: Add RichText widget
                     child: RichText(
+                        textAlign: TextAlign.center,
                         text: const TextSpan(
                             text: 'Selamat Datang!',
                             style: TextStyle(

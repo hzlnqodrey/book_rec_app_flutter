@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:book_recomendation_hazlan/screens.dart/search_filter.dart';
+import 'package:book_recomendation_hazlan/service/provider/search_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';

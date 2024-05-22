@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../screens.dart/bookloading.dart';
+import '../service/api/bookloading.dart';
 
 class mystery extends StatefulWidget {
   var c1;
@@ -33,6 +33,7 @@ class _mysteryState extends State<mystery> {
       height: 270,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
+          // home screen book list view max (9 books)
           itemCount: 9,
           itemBuilder: (context, index) {
             return (Container(
@@ -57,10 +58,10 @@ class _mysteryState extends State<mystery> {
                             decoration: BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 3,
-                              blurRadius: 8,
-                              offset: Offset(2, 2))
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 3,
+                                    blurRadius: 8,
+                                    offset: Offset(2, 2))
                               ],
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(

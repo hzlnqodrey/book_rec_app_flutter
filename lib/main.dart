@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:book_recomendation_hazlan/bottom_navbar.dart';
-import 'package:book_recomendation_hazlan/login_page.dart';
+import 'package:book_recomendation_hazlan/screen/bottom_navbar.dart';
+import 'package:book_recomendation_hazlan/screen/login_page.dart';
 import 'models/shared_preference.dart';
 import 'models/user.dart';
 

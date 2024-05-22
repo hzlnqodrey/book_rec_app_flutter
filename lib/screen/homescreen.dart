@@ -4,7 +4,7 @@ import 'package:book_recomendation_hazlan/category/fantasy.dart';
 import 'package:book_recomendation_hazlan/category/horror.dart';
 import 'package:book_recomendation_hazlan/category/health.dart';
 import 'package:book_recomendation_hazlan/category/mystery.dart';
-import 'package:book_recomendation_hazlan/screens.dart/search_loading.dart';
+import 'package:book_recomendation_hazlan/service/api/search_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,7 +53,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 37, 85, 50),
+        title: Text(
+          "Rekomendasi Buku",
+          style: GoogleFonts.lato(
+              textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold)),
+        ),
+      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 37, 85, 50),
       body: SafeArea(
@@ -151,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 padding: const EdgeInsets.all(10),
                                 child: const Text(
-                                  "Book Category:",
+                                  "Kategori Buku:",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 36,
@@ -180,8 +190,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Color.fromARGB(255, 37, 85, 50),
                                     ),
                                     borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(80),
-                                        bottomRight: Radius.circular(120))),
+                                        topLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40))),
                                 child: const Text(
                                   "Fantasy",
                                   style: TextStyle(
@@ -216,8 +226,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Color.fromARGB(255, 37, 85, 50),
                                     ),
                                     borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(80),
-                                        bottomRight: Radius.circular(120))),
+                                        topLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40))),
                                 child: const Text(
                                   "Health",
                                   style: TextStyle(
@@ -250,8 +260,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Color.fromARGB(255, 37, 85, 50),
                                     ),
                                     borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(80),
-                                        bottomRight: Radius.circular(120))),
+                                        topLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40))),
                                 child: const Text(
                                   "Horror",
                                   style: TextStyle(
@@ -286,8 +296,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Color.fromARGB(255, 37, 85, 50),
                                     ),
                                     borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(80),
-                                        bottomRight: Radius.circular(120))),
+                                        topLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40))),
                                 child: const Text(
                                   "Fantasy",
                                   style: TextStyle(

@@ -280,14 +280,29 @@ class _bookdisplayState extends State<bookdisplay> {
                                 SizedBox(
                                   height: 5,
                                 ),
+                                // Text(
+                                //   rating,
+                                //   style: GoogleFonts.lato(
+                                //       textStyle: TextStyle(
+                                //           fontWeight: FontWeight.bold,
+                                //           fontSize: 15,
+                                //           color: Colors.white)),
+                                // )
                                 Text(
-                                  rating,
+                                  (widget.d["items"][0]["volumeInfo"]
+                                              ["averageRating"]) ==
+                                          null
+                                      ? "⭐ " + "Not rating available"
+                                      : "⭐ " +
+                                          (widget.d["items"][0]["volumeInfo"]
+                                                  ["averageRating"]
+                                              .toString()),
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15,
-                                          color: Colors.white)),
-                                )
+                                          color: Colors.grey[400],
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold)),
+                                ),
                               ],
                             ),
                             Column(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:book_recomendation_hazlan/models/shared_preference.dart';
 
-import 'package:book_recomendation_hazlan/login_page.dart';
+import 'package:book_recomendation_hazlan/screen/login_page.dart';
 
 class Profil extends StatelessWidget {
   const Profil({key});

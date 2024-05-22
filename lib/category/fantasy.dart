@@ -1,5 +1,5 @@
-import 'package:book_recomendation_hazlan/screens.dart/bookloading.dart';
-import 'package:book_recomendation_hazlan/screens.dart/error.dart';
+import 'package:book_recomendation_hazlan/service/api/bookloading.dart';
+import 'package:book_recomendation_hazlan/helper/error.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -34,6 +34,7 @@ class _fantasyState extends State<fantasy> {
       height: 270,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
+          // home screen book list view max (9 books)
           itemCount: 9,
           itemBuilder: (context, index) {
             return (Container(
