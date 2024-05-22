@@ -132,7 +132,9 @@ class _searchfilterState extends State<searchfilter> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: widget.d["items"].length - 1,
+                itemCount: widget.d["items"].length == null
+                    ? 0
+                    : widget.d["items"].length - 1,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
