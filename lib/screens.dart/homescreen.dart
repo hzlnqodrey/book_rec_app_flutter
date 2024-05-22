@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return (Scaffold(
       appBar: AppBar(),
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xfff012AC0),
+      backgroundColor: Color.fromARGB(255, 37, 85, 50),
       body: SafeArea(
           child: Column(
         children: [
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
-                        "assets/back.png",
+                        "book_bg.png",
                       ),
                       fit: BoxFit.cover)),
               child: Center(
@@ -109,21 +109,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
-                        "Jika kamu hanya membaca buku yang dibaca semua orang,",
+                    Text("Buku adalah jendela dunia",
                         style: GoogleFonts.lato(
                             textStyle: TextStyle(
                                 color: Colors.white,
-                                fontSize: 12,
+                                fontSize: 19,
                                 fontWeight: FontWeight.bold))),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "- kamu hanya bisa berpikir seperti semua orang..",
+                      "- Muhammad Yamin.",
                       style: GoogleFonts.lato(
                           textStyle: TextStyle(
-                              fontSize: 10,
+                              fontSize: 13,
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),
                     )
@@ -142,24 +141,46 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Container(
                             child: ListView(
                       children: [
-                        SizedBox(height: 10),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               Text(
-                                "Mistery",
+                                "Health",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
                         ),
                         SizedBox(
-                          height: 5,
+                          height: 10,
                         ),
-                        mystery(c1: widget.c1),
+                        romance(c4: widget.c4),
+                        SizedBox(height: 10),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Text(
+                                "Horror",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        horror(c3: widget.c3),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 10),
@@ -179,44 +200,25 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         fantasy(c2: widget.c2),
                         SizedBox(
-                          height: 10,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Text(
-                                "Horror",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
                           height: 20,
                         ),
-                        horror(c3: widget.c3),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               Text(
-                                "Health",
+                                "Mistery",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
-                        romance(c4: widget.c4),
+                        mystery(c1: widget.c1),
                       ],
                     )))
                   ],
