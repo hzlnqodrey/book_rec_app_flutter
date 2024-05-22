@@ -18,4 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 Changelog:
 
 - Then until Now: feat and fixes
-- 23 May 2024: deploy to vercel
+- 23 May 2024: deploy to vercel (try again)
