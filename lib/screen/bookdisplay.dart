@@ -209,9 +209,26 @@ class _bookdisplayState extends State<bookdisplay> {
                             url = widget.d["items"][0]["accessInfo"]["epub"]
                                 ["acsTokenLink"];
                             await launchUrl(Uri.parse(url));
+                          } else {
+                            debugPrint("error Null");
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content:
+                                    Text('Book is not available to download'),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
                           }
                         } catch (e) {
                           print("Not available");
+                          debugPrint("error Null");
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content:
+                                  Text('Book is not available to download'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
                         }
                       },
                       child: Icon(
