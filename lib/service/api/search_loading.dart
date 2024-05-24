@@ -32,9 +32,24 @@ class _searchloadingState extends State<searchloading> {
 
     cp = jsonDecode(r.body);
     print(cp);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return searchfilter(d: cp);
-    }));
+    try {
+      if (cp['items'] == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('No Book Found'),
+          ),
+        );
+        Navigator.pop(context);
+        return;
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('No Book Found'),
+        ),
+      );
+      Navigator.pop(context);
+    }
     return;
   }
 
