@@ -41,6 +41,15 @@ class _searchloadingState extends State<searchloading> {
         );
         Navigator.pop(context);
         return;
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => searchfilter(
+              d: cp,
+            ),
+          ),
+        );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
