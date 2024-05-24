@@ -49,11 +49,11 @@ class _LoginPageState extends State<LoginPage> {
                               fontWeight: FontWeight.bold,
                             ),
                             children: <TextSpan>[
-                          TextSpan(
-                              text: '\n di Rekomendasi Buku',
-                              style: TextStyle(
-                                  color: Colors.black87, fontSize: 24))
-                        ])),
+                              TextSpan(
+                                  text: '\n di Aplikasi Rekomendasi Buku',
+                                  style: TextStyle(
+                                      color: Colors.black87, fontSize: 24))
+                            ])),
                   ),
                   SizedBox(
                     height: 40,

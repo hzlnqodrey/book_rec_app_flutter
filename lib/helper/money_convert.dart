@@ -54,8 +54,8 @@ class _MoneyConverterPageState extends State<MoneyConverterPage> {
             case 'USD':
               output = input * 0.000067;
               break;
-            case 'SAR':
-              output = input * 0.00025;
+            case 'MLR':
+              output = input * 0.000293439;
               break;
           }
           break;
@@ -67,20 +67,20 @@ class _MoneyConverterPageState extends State<MoneyConverterPage> {
             case 'USD':
               output = input;
               break;
-            case 'SAR':
-              output = input * 3.75;
+            case 'MYR':
+              output = input * 4.69;
               break;
           }
           break;
-        case 'SAR':
+        case 'MYR':
           switch (currencyOutput) {
             case 'IDR':
-              output = input * 3982.51;
+              output = input * 3407.87;
               break;
             case 'USD':
-              output = input * 0.27;
+              output = input * 0.212019;
               break;
-            case 'SAR':
+            case 'MYR':
               output = input;
               break;
           }
@@ -135,7 +135,7 @@ class _MoneyConverterPageState extends State<MoneyConverterPage> {
                     const SizedBox(width: 10),
                     DropdownButton(
                       value: currencyInput,
-                      items: const <String>['IDR', 'USD', 'EUR']
+                      items: const <String>['IDR', 'USD', 'MYR']
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -173,7 +173,7 @@ class _MoneyConverterPageState extends State<MoneyConverterPage> {
                     const SizedBox(width: 10),
                     DropdownButton(
                       value: currencyOutput,
-                      items: const <String>['IDR', 'USD', 'EUR']
+                      items: const <String>['IDR', 'USD', 'MYR']
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,

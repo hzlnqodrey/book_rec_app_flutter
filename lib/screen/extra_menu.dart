@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:book_recomendation_hazlan/helper/money_convert.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class ExtraMenu extends StatefulWidget {
   const ExtraMenu({key});
@@ -23,15 +22,31 @@ class _ExtraMenuState extends State<ExtraMenu> {
   late String result;
   TextEditingController inputController = TextEditingController();
 
+  late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+
   @override
   void initState() {
+    super.initState();
     timeString = _formatDateTime(DateTime.now());
     timer = Timer.periodic(const Duration(seconds: 1), (Timer t) => _getTime());
-    super.initState();
     input = 0;
+    output = 0;
     currencyInput = 'IDR';
     currencyOutput = 'IDR';
     result = '';
+
+    // Initialize the notification plugin
+    flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    const AndroidInitializationSettings initializationSettingsAndroid =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+
+    final InitializationSettings initializationSettings =
+        InitializationSettings(
+      android: initializationSettingsAndroid,
+      iOS: IOSInitializationSettings(),
+    );
+
+    flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
   @override
@@ -69,8 +84,8 @@ class _ExtraMenuState extends State<ExtraMenu> {
             case 'USD':
               output = input * 0.000067;
               break;
-            case 'SAR':
-              output = input * 0.00025;
+            case 'MYR':
+              output = input * 0.000293;
               break;
           }
           break;
@@ -82,20 +97,20 @@ class _ExtraMenuState extends State<ExtraMenu> {
             case 'USD':
               output = input;
               break;
-            case 'SAR':
-              output = input * 3.75;
+            case 'MYR':
+              output = input * 4.69;
               break;
           }
           break;
-        case 'SAR':
+        case 'MYR':
           switch (currencyOutput) {
             case 'IDR':
-              output = input * 3982.51;
+              output = input * 3407.87;
               break;
             case 'USD':
-              output = input * 0.27;
+              output = input * 0.2120;
               break;
-            case 'SAR':
+            case 'MYR':
               output = input;
               break;
           }
@@ -103,6 +118,28 @@ class _ExtraMenuState extends State<ExtraMenu> {
       }
       result = output.toStringAsFixed(2);
     });
+  }
+
+  Future<void> _showNotification(String message) async {
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'extra_menu_notification',
+      'extra_menu_notification_channel',
+      importance: Importance.max,
+      priority: Priority.high,
+      showWhen: false,
+    );
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: IOSNotificationDetails(),
+    );
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      'Time Zone Changed',
+      message,
+      platformChannelSpecifics,
+      payload: 'Time Zone Changed',
+    );
   }
 
   @override
@@ -166,6 +203,8 @@ class _ExtraMenuState extends State<ExtraMenu> {
                       onChanged: (String? value) {
                         setState(() {
                           waktuBagian = value!;
+                          _showNotification(
+                              'Time zone changed to $waktuBagian');
                         });
                       },
                       items: listWaktuBagian
@@ -242,7 +281,7 @@ class _ExtraMenuState extends State<ExtraMenu> {
                   const SizedBox(width: 10),
                   DropdownButton(
                     value: currencyInput,
-                    items: const <String>['IDR', 'USD', 'SAR']
+                    items: const <String>['IDR', 'USD', 'MYR']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -279,7 +318,7 @@ class _ExtraMenuState extends State<ExtraMenu> {
                   const SizedBox(width: 10),
                   DropdownButton(
                     value: currencyOutput,
-                    items: const <String>['IDR', 'USD', 'SAR']
+                    items: const <String>['IDR', 'USD', 'MYR']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -302,14 +341,12 @@ class _ExtraMenuState extends State<ExtraMenu> {
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
+                  backgroundColor: Color.fromARGB(255, 37, 85, 50),
                 ),
                 onPressed: convert,
-                child: const Text(
-                  'C O N V E R T',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Poppins',
-                  ),
+                child: Text(
+                  "Convert",
+                  style: TextStyle(fontSize: 19, color: Colors.white),
                 ),
               )
             ],

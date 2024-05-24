@@ -52,13 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadData();
   }
 
-    Future<void> _loadData() async {
+  Future<void> _loadData() async {
     setState(() {
       _isLoading = true;
     });
 
     // Simulate a network call or data loading
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 7));
 
     setState(() {
       _isLoading = false;
@@ -82,259 +82,299 @@ class _HomeScreenState extends State<HomeScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 37, 85, 50),
       body: SafeArea(
-          child: _isLoading ? Center(child: CircularProgressIndicator())  : Column(
-        children: [
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                        "book_bg.png",
-                      ),
-                      fit: BoxFit.cover)),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 80.0),
-                      child: Container(
-                        height: 40,
-                        child: TextField(
-                          controller: t,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              contentPadding: EdgeInsets.all(10),
-                              hintText: "Cari Buku...",
-                              prefixIcon: Icon(Icons.search),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(40))),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return searchloading(text: t.text);
-                        }));
-                      },
-                      // splashColor: Color(0xfff012AC0),
-                      // color: Colors.white,
-                      child: Text(
-                        "CARI",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text("Buku adalah jendela dunia",
-                        style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold))),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "- Muhammad Yamin.",
-                      style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                              fontSize: 13,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold)),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.green[50],
-                child: Column(
+          child: _isLoading
+              ? Center(child: CircularProgressIndicator())
+              : Column(
                   children: [
                     Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  "book_bg.png",
+                                ),
+                                fit: BoxFit.cover)),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 80.0),
+                                child: Container(
+                                  height: 40,
+                                  child: TextField(
+                                    controller: t,
+                                    decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding: EdgeInsets.all(10),
+                                        hintText: "Cari Buku...",
+                                        prefixIcon: Icon(Icons.search),
+                                        border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                            borderRadius:
+                                                BorderRadius.circular(40))),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return searchloading(text: t.text);
+                                  }));
+                                },
+                                // splashColor: Color(0xfff012AC0),
+                                // color: Colors.white,
+                                style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 10),
+                                  textStyle: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  backgroundColor: Colors.white,
+                                ),
+                                child: Text(
+                                  "Cari Buku",
+                                  style: TextStyle(
+                                      fontSize: 19,
+                                      color: Color.fromARGB(255, 37, 85, 50)),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text("Buku adalah jendela dunia",
+                                  style: GoogleFonts.lato(
+                                      textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 19,
+                                          fontWeight: FontWeight.bold))),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "- Muhammad Yamin.",
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold)),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        flex: 2,
                         child: Container(
-                            child: ListView(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
+                          color: Colors.green[50],
+                          child: Column(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                child: const Text(
-                                  "Kategori Buku:",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 36,
-                                      color: Colors.black),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 37, 85, 50),
-                                    border: Border.all(
-                                      width: 8,
-                                      color: Color.fromARGB(255, 37, 85, 50),
+                              Expanded(
+                                  child: Container(
+                                      child: ListView(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0, vertical: 10),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      // ignore: prefer_const_literals_to_create_immutables
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.all(10),
+                                          child: const Text(
+                                            "Kategori Buku:",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 36,
+                                                color: Colors.black),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40))),
-                                child: const Text(
-                                  "Fantasy",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 24,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        fantasy(c2: widget.c2),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 37, 85, 50),
-                                    border: Border.all(
-                                      width: 8,
-                                      color: Color.fromARGB(255, 37, 85, 50),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0, vertical: 10),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      // ignore: prefer_const_literals_to_create_immutables
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 37, 85, 50),
+                                              border: Border.all(
+                                                width: 8,
+                                                color: Color.fromARGB(
+                                                    255, 37, 85, 50),
+                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(40),
+                                                      bottomRight:
+                                                          Radius.circular(40))),
+                                          child: const Text(
+                                            "Fantasy",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24,
+                                                color: Colors.white),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40))),
-                                child: const Text(
-                                  "Health",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 24,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        romance(c4: widget.c4),
-                        SizedBox(height: 20),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 37, 85, 50),
-                                    border: Border.all(
-                                      width: 8,
-                                      color: Color.fromARGB(255, 37, 85, 50),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  fantasy(c2: widget.c2),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0, vertical: 10),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      // ignore: prefer_const_literals_to_create_immutables
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 37, 85, 50),
+                                              border: Border.all(
+                                                width: 8,
+                                                color: Color.fromARGB(
+                                                    255, 37, 85, 50),
+                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(40),
+                                                      bottomRight:
+                                                          Radius.circular(40))),
+                                          child: const Text(
+                                            "Health",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24,
+                                                color: Colors.white),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40))),
-                                child: const Text(
-                                  "Horror",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 24,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        horror(c3: widget.c3),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 37, 85, 50),
-                                    border: Border.all(
-                                      width: 8,
-                                      color: Color.fromARGB(255, 37, 85, 50),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  romance(c4: widget.c4),
+                                  SizedBox(height: 20),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0, vertical: 10),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      // ignore: prefer_const_literals_to_create_immutables
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 37, 85, 50),
+                                              border: Border.all(
+                                                width: 8,
+                                                color: Color.fromARGB(
+                                                    255, 37, 85, 50),
+                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(40),
+                                                      bottomRight:
+                                                          Radius.circular(40))),
+                                          child: const Text(
+                                            "Horror",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24,
+                                                color: Colors.white),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40))),
-                                child: const Text(
-                                  "Riddle and Mystery",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 24,
-                                      color: Colors.white),
-                                ),
-                              ),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  horror(c3: widget.c3),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0, vertical: 10),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      // ignore: prefer_const_literals_to_create_immutables
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 37, 85, 50),
+                                              border: Border.all(
+                                                width: 8,
+                                                color: Color.fromARGB(
+                                                    255, 37, 85, 50),
+                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(40),
+                                                      bottomRight:
+                                                          Radius.circular(40))),
+                                          child: const Text(
+                                            "Riddle and Mystery",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24,
+                                                color: Colors.white),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  mystery(c1: widget.c1),
+                                ],
+                              )))
                             ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        mystery(c1: widget.c1),
-                      ],
-                    )))
+                        ))
                   ],
-                ),
-              ))
-        ],
-      )),
+                )),
     ));
   }
 }
