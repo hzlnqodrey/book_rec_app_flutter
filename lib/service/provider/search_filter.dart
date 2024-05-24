@@ -67,9 +67,32 @@ class _searchfilterState extends State<searchfilter> {
   }
 
   @override
+  var url = "";
   void initState() {
     // TODO: implement initState
     super.initState();
+    geturl(0);
+  }
+
+  geturl(int index) {
+    try {
+      url =
+          widget.d["items"][index + 1]["volumeInfo"]["imageLinks"]["thumbnail"];
+    } catch (e) {
+      SnackBar(content: Text("Image not available"));
+    }
+  }
+
+  String getImageUrl(int index) {
+    String imageUrl =
+        "https://islandpress.org/files/default_book_cover_2015.jpg";
+    try {
+      imageUrl =
+          widget.d["items"][index + 1]["volumeInfo"]["imageLinks"]["thumbnail"];
+    } catch (e) {
+      print("Error getting image URL: $e");
+    }
+    return imageUrl;
   }
 
   @override
@@ -167,9 +190,7 @@ class _searchfilterState extends State<searchfilter> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(
-                                    image: NetworkImage(widget.d["items"]
-                                            [index + 1]["volumeInfo"]
-                                        ["imageLinks"]["thumbnail"]),
+                                    image: NetworkImage(getImageUrl(index)),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
