@@ -1,3 +1,4 @@
+import 'package:book_recomendation_hazlan/screen/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:book_recomendation_hazlan/screen/regist_page.dart';
 import 'package:book_recomendation_hazlan/models/hive_database.dart';
@@ -262,7 +263,7 @@ class _LoginPageState extends State<LoginPage> {
       );
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => Nav(),
+          builder: (context) => HomePage(),
         ),
       );
     }

@@ -133,9 +133,9 @@ class Profil extends StatelessWidget {
                                     builder: (context) => const LoginPage()),
                                 (route) => false);
                           },
-                          child: const Text('Logout'),
+                          child: const Text('Logout', style: TextStyle(color: Colors.white),),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 255, 44, 44),
+                            backgroundColor: Color.fromARGB(255, 37, 85, 50),
                           ),
                         ),
                         //child: Image.asset('assets/right-arrow.png'),

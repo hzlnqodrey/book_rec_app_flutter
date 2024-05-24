@@ -27,6 +27,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController t = TextEditingController();
+  bool _isLoading = false; // Track loading state
 
   String st(String s) {
     int count = 0;
@@ -48,26 +49,40 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     print(widget.c1);
+    _loadData();
+  }
+
+    Future<void> _loadData() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Simulate a network call or data loading
+    await Future.delayed(Duration(seconds: 5));
+
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 37, 85, 50),
-        title: Text(
-          "Rekomendasi Buku",
-          style: GoogleFonts.lato(
-              textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
-        ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Color.fromARGB(255, 37, 85, 50),
+      //   title: Text(
+      //     "Rekomendasi Buku",
+      //     style: GoogleFonts.lato(
+      //         textStyle: TextStyle(
+      //             color: Colors.white,
+      //             fontSize: 20,
+      //             fontWeight: FontWeight.bold)),
+      //   ),
+      // ),
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 37, 85, 50),
       body: SafeArea(
-          child: Column(
+          child: _isLoading ? Center(child: CircularProgressIndicator())  : Column(
         children: [
           Expanded(
             child: Container(
