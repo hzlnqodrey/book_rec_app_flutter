@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
-import 'package:book_recomendation_hazlan/category/fantasy.dart';
-import 'package:book_recomendation_hazlan/category/horror.dart';
-import 'package:book_recomendation_hazlan/category/health.dart';
-import 'package:book_recomendation_hazlan/category/mystery.dart';
+import 'package:book_recomendation_hazlan/service/category/fantasy.dart';
+import 'package:book_recomendation_hazlan/service/category/horror.dart';
+import 'package:book_recomendation_hazlan/service/category/health.dart';
+import 'package:book_recomendation_hazlan/service/category/mystery.dart';
 import 'package:book_recomendation_hazlan/service/api/search_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';

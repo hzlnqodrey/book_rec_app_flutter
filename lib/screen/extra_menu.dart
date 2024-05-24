@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:book_recomendation_hazlan/screen/konversi_uang.dart';
+import 'package:book_recomendation_hazlan/helper/money_convert.dart';
 
 class ExtraMenu extends StatefulWidget {
   const ExtraMenu({key});
@@ -12,7 +12,7 @@ class ExtraMenu extends StatefulWidget {
 }
 
 class _ExtraMenuState extends State<ExtraMenu> {
-  List<String> listWaktuBagian = <String>['WIB', 'WITA', 'WIT', 'UTC'];
+  List<String> listWaktuBagian = <String>['WIB', 'WITA', 'WIT', 'London'];
   late String waktuBagian = listWaktuBagian.first;
   late String timeString;
   late Timer timer;
@@ -151,7 +151,7 @@ class _ExtraMenuState extends State<ExtraMenu> {
                     child: Text(
                       timeString,
                       style:
-                      const TextStyle(fontSize: 25, fontFamily: 'Poppins'),
+                          const TextStyle(fontSize: 25, fontFamily: 'Poppins'),
                     ),
                   ),
                   const SizedBox(
@@ -297,7 +297,7 @@ class _ExtraMenuState extends State<ExtraMenu> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   textStyle: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -325,8 +325,8 @@ class _ExtraMenuState extends State<ExtraMenu> {
       waktu = DateTime.now().add(const Duration(hours: 1));
     } else if (waktuBagian == 'WIT') {
       waktu = DateTime.now().add(const Duration(hours: 2));
-    } else if (waktuBagian == 'UTC') {
-      waktu = DateTime.now().toUtc();
+    } else if (waktuBagian == 'London') {
+      waktu = DateTime.now().toUtc().add(const Duration(hours: 1));
     } else {
       waktu = DateTime.now();
     }

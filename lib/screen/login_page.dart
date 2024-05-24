@@ -2,7 +2,7 @@ import 'package:book_recomendation_hazlan/screen/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:book_recomendation_hazlan/screen/regist_page.dart';
 import 'package:book_recomendation_hazlan/models/hive_database.dart';
-import 'bottom_navbar.dart';
+// import '../.archived/bottom_navbar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
